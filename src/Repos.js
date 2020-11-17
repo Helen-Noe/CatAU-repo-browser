@@ -1,13 +1,17 @@
 import React, { Component } from "react";
-// import Profile from "./Profile";
+import SingleRepo from "./SingleRepo";
 
 class Repos extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      // Desc Default
       error: null,
       isLoaded: false,
       repo: [],
+      contributors: [],
+      sort: "",
+      clickedRepoIndex: null,
     };
   }
   componentDidMount() {
@@ -35,21 +39,18 @@ class Repos extends Component {
       );
   }
 
-  getContributors(url) {
-    const contri = [];
-    fetch(url)
-      .then((response) => response.json())
-      .then((result) => {
-        //   console.log(`result.length');
-        //   console.log(result);
-        contri = result;
-        return contri.name;
-      })
-      .catch(console.log);
+  viewMore(index) {
+    this.setState((prevState) => ({ ...prevState, clickedRepoIndex: index }));
   }
 
+  handleSort = (e) => {
+    console.log(e.target.value);
+    this.setState({ sort: e.target.value });
+  };
+
   render() {
-    const { error, isLoaded, repo } = this.state;
+    const { error, isLoaded, repo, createTimeSort } = this.state;
+
     if (error) {
       return <div> Error: {error.message} </div>;
     } else if (!isLoaded) {
@@ -57,25 +58,22 @@ class Repos extends Component {
     } else {
       return (
         <div className="repoDetail">
+          <select defaultValue="Sort" onChange={this.handleSort}>
+            <option disabled value="Sort">
+              {" "}
+              Sort{" "}
+            </option>
+            <option value="create"> Created Date </option>
+            <option value="update"> updated Date</option>
+          </select>
           <ul>
-            {repo.map((item) => (
-              <li key={item.id}>
-                Name:{item.name} <br />
-                Description: {item.description} <br />
-                GitHub URL: <a href="{item.git_url}">Click Here</a> <br />
-                Forked: {item.forks} <br />
-                Watchers count: {item.watchers} <br />
-                Star count:{item.stargazers_count} <br />
-                License: {item.license === null
-                  ? "NULL"
-                  : item.license.name}{" "}
-                <br />
-                Language: {item.language} <br />
-                Top 5 Contributors:{" "}
-                {this.getContributors(item.contributors_url)}
-                <br />
-                <br />
-              </li>
+            {repo.map((item, index) => (
+              <SingleRepo
+                item={item}
+                onSingleRepoClick={() => this.viewMore(index)}
+                clickedRepoIndex={this.state.clickedRepoIndex}
+                currentRepoIndex={index}
+              />
             ))}
           </ul>
         </div>
