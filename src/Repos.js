@@ -15,6 +15,8 @@ class Repos extends Component {
       repos: [],
       contributors: [],
       sort: "",
+      // perPage: 10,
+      // currentPage: 0,
       clickedRepoIndex: null,
     };
   }
@@ -118,7 +120,6 @@ class Repos extends Component {
       return (
         <div className="repoDetail">
           <Sorting handleSort={this.handleSort} />
-          <Filter handleFilter={this.handleFilter} />
           <ul>
             {sortedRepos.map((item, index) => (
               <SingleRepo
