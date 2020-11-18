@@ -8,6 +8,7 @@ export default ({ url }) => {
     fetch(url)
       .then((response) => response.json())
       .then((result) => {
+        result = result.slice(0, 5);
         console.log("result from contributors ", result);
         setContributors(result);
       });

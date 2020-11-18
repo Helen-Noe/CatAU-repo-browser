@@ -2,6 +2,7 @@ import React from "react";
 import Contributors from "./Contributor";
 
 const SingleRepo = ({
+  keyid,
   item,
   currentRepoIndex,
   clickedRepoIndex,
@@ -11,8 +12,9 @@ const SingleRepo = ({
     <li key={item.id}>
       Name: <a href="{item.git_url}">{item.name}</a> <br />
       Description: {item.description} <br />
-      Created: {item.created_at} <br />
-      Forked: {item.forks} <br />
+      Created: {item.created_at.substring(0, 4)} <br />
+      Updated: {item.updated_at.substring(0, 4)} <br />
+      Forked: {item.fork ? "Forked" : "Not Forked"} <br />
       Watchers count: {item.watchers} <br />
       Star count:{item.stargazers_count} <br />
       License: {item.license === null ? "NULL" : item.license.name} <br />
