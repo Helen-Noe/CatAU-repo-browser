@@ -1,0 +1,94 @@
+.repoDetail .single-repo {
+  /* background-color: red; */
+  display: block;
+  padding-top: 10px;
+}
+
+.single-repo li {
+  padding: 24px 0 0 80px;
+}
+
+.single-repo hr {
+  margin: 0 60px 0 60px;
+}
+
+/* .repoDetail .first-hr {
+  margin-top: 80px;
+} */
+
+.repoDetail ul hr {
+  margin-top: 80px;
+}
+.view-more {
+  float: right;
+  margin-right: 100px;
+  padding: 10px;
+  background-color: #bb2025;
+  color: white;
+  border: #bb2025;
+  border-radius: 10px;
+}
+
+.star-count {
+  padding-left: 16px;
+}
+
+.eye-icon {
+  margin-left: 108px;
+}
+
+.watcher-count {
+  padding-left: 16px;
+}
+
+.update-yr {
+  padding-left: 130px;
+}
+
+.fork {
+  padding-left: 108px;
+}
+
+.license {
+  padding-left: 148px;
+}
+
+.container {
+  width: 100px;
+  height: 150px;
+  text-align: center;
+}
+
+.contributors {
+  display: inline-block;
+  padding-left: 60px;
+}
+
+.contributors img {
+  border-radius: 50%;
+}
+
+.text {
+  text-align: center;
+  /* padding-left: 70px;
+  line-height: 0.5; */
+  /* top: 0%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+  padding-left: 60px; */
+}
+
+.avatar {
+  display: flex;
+  vertical-align: middle;
+}
+
+.repo-name {
+  text-decoration: none;
+  color: black;
+}
+
+.repo-name:hover {
+  color: #bb2025;
+}

@@ -4,6 +4,7 @@ import Sorting from "./Sorting";
 import Filter from "./Filter";
 import axios from "axios";
 import ReactPaginate from "react-js-pagination";
+import "./repos.css";
 
 class Repos extends Component {
   constructor(props) {
@@ -118,19 +119,23 @@ class Repos extends Component {
       return <div> Loading.. </div>;
     } else {
       return (
-        <div className="repoDetail">
-          <Sorting handleSort={this.handleSort} />
-          <ul>
-            {sortedRepos.map((item, index) => (
-              <SingleRepo
-                sortedRepo={sortedRepos}
-                item={item}
-                onSingleRepoClick={() => this.viewMore(index)}
-                clickedRepoIndex={this.state.clickedRepoIndex}
-                currentRepoIndex={index}
-              />
-            ))}
-          </ul>
+        <div className="sort-display">
+          <div className="sortBtn">
+            <Sorting handleSort={this.handleSort} />
+          </div>
+          <div className="repoDetail">
+            <ul>
+              {sortedRepos.map((item, index) => (
+                <SingleRepo
+                  sortedRepo={sortedRepos}
+                  item={item}
+                  onSingleRepoClick={() => this.viewMore(index)}
+                  clickedRepoIndex={this.state.clickedRepoIndex}
+                  currentRepoIndex={index}
+                />
+              ))}
+            </ul>
+          </div>
         </div>
       );
     }

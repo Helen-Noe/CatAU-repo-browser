@@ -58,43 +58,18 @@ class Profile extends Component {
             <li>
               <p>{data.description}</p>
             </li>
-            {/* <li>
-              <a href="https://www.catalyst-au.net/" className="globe">
-                <FontAwesomeIcon
-                  style={{ color: "#ffffff" }}
-                  icon={faGlobe}
-                  size="2x"
-                />
-              </a>
-              <a href={data.blog} className="comments">
-                <FontAwesomeIcon
-                  style={{ color: "#ffffff" }}
-                  icon={faComments}
-                  size="2x"
-                />
-              </a>
-              <a href={data.html_url} className="github">
-                <FontAwesomeIcon
-                  style={{ color: "#ffffff" }}
-                  icon={faGithub}
-                  size="2x"
-                />
-              </a>
-            </li> */}
-            {/* <li id="repoNumber">Repos: {data.public_repos}</li>
-            <li> Location: {data.location}</li>
-            <li className="blank"></li> */}
           </ul>
-          <p className="totRepoDisplay">
-            <FontAwesomeIcon
-              style={{ color: "#BB2025" }}
-              icon={faBook}
-              size="2x"
-              id="faBook"
-            />
-            <span className="totRepo">{data.public_repos} Repositories</span>
-          </p>
-
+          <div className="totRepoDisplay">
+            <p>
+              <FontAwesomeIcon
+                style={{ color: "#BB2025" }}
+                icon={faBook}
+                size="2x"
+                id="faBook"
+              />
+              <span className="totRepo">{data.public_repos} Repositories</span>
+            </p>
+          </div>
           <Repos />
         </div>
       );

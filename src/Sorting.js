@@ -1,29 +1,25 @@
 import React, { Component } from "react";
+import "./sorting.css";
 
 export default class Sorting extends Component {
   render() {
     return (
-      <div id="btn1">
+      <div className="custom-select">
         <select defaultValue="Sort" onChange={this.props.handleSort}>
-          <option disabled value="Sort" className="textDropDown">
-            {" "}
-            Sort and Filter{" "}
+          <option disabled value="Sort">
+            Sort and Filter
           </option>
           <option value="createNewToOld">
-            {" "}
-            Created Date (Newest to Oldest){" "}
+            Created Date (Newest to Oldest)
           </option>
           <option value="createOldToNew">
-            {" "}
-            Created Date (Oldest to Newest){" "}
+            Created Date (Oldest to Newest)
           </option>
           <option value="updateNewToOld">
-            {" "}
-            Updated Date (Newest to Oldest){" "}
+            Updated Date (Newest to Oldest)
           </option>
           <option value="updateOldToNew">
-            {" "}
-            Updated Date (Oldest to Newest){" "}
+            Updated Date (Oldest to Newest)
           </option>
           <option value="aToz"> Name (A - Z) </option>
           <option value="zToa"> Name (Z - A) </option>

@@ -9,17 +9,33 @@ export default ({ url }) => {
       .then((response) => response.json())
       .then((result) => {
         result = result.slice(0, 5);
-        console.log("result from contributors ", result);
+        // console.log("result from contributors ", result);
         setContributors(result);
       });
   }, [url]);
 
-  console.log("contributors :", contributors);
+  // console.log("contributors :", contributors);
 
   return (
     contributors &&
     contributors.map((contributor) => {
-      return <p key={contributors.login}>{contributor.login}</p>;
+      const avatarURL = `${contributor.avatar_url}.png`;
+      return (
+        <div className="contributors" key={contributor.login}>
+          <div className="container">
+            <a href="{contributor.url}">
+              <img
+                src={avatarURL}
+                alt="Image"
+                className="avatar"
+                width="100"
+                height="100"
+              />
+            </a>
+            {contributor.login}
+          </div>
+        </div>
+      );
     })
   );
 };
